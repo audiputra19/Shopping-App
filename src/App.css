@@ -1,38 +1,163 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.body {
+  background: #F2F3F4;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  padding: 20px 40px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+}
+
+.header ul {
+  position: relative;
+  display: flex;
+  gap: 30px;
+}
+
+.header ul li {
+  list-style: none;
+  position: relative;
+  font-size: 1em;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+.header .search {
+  position: relative;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-size: 1.5em;
+  z-index: 10;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.searchBox {
+  position: absolute;
+  left: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #fff;
+  align-items: center;
+  padding: 0 30px;
+  opacity: 0;
+  transition: 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.searchBox.active {
+  right: 0;
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.searchBox input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 50px;
+  color: #333;
+  font-size: 1.25em;
+  background: #fff;
+  border-bottom: 1px solid #333;
+}
+
+.btnSearch {
+  position: relative;
+  left: 30px;
+  transition: 0.2s ease-in-out;
+}
+
+.btnSearch.active {
+  left: 0;
+}
+
+.closeSearch {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  margin-left: 10px;
+  scale: 0;
+}
+
+.closeSearch.active {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.2s;
+  scale: 1;
+}
+
+.menuToggle {
+  position: relative;
+  display: none;
+}
+
+@media (max-width: 800px) {
+
+  .btnSearch {
+    left: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menuToggle {
+    position: absolute;
+    display: block;
+    font-size: 1.5em;
+    cursor: pointer;
+    transform: translateX(30px);
+    z-index: 10;
+    margin-left: 10px;
   }
+  
+  .header .navigation {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+  }
+
+  .open .navigation {
+    top: 80px;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 40px;
+    border-top: 1px solid #D5DBDB;
+  }
+
+  .open .navigation li {
+    font-size: 1.25em;
+  }
+
+  .hide {
+    display: none;
+  } 
+
 }
